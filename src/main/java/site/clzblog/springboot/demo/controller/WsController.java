@@ -3,6 +3,8 @@ package site.clzblog.springboot.demo.controller;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import site.clzblog.springboot.demo.model.RequestMessage;
 import site.clzblog.springboot.demo.model.ResponseMessage;
 
@@ -13,5 +15,11 @@ public class WsController {
     public ResponseMessage sayHello(RequestMessage requestMessage) {
         System.out.println(requestMessage.getName());
         return new ResponseMessage("Hello," + requestMessage.getName() + " !");
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test() {
+        return "test";
     }
 }
