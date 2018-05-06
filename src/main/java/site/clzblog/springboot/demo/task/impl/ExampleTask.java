@@ -1,6 +1,6 @@
-package site.clzblog.springboot.demo.task;
+package site.clzblog.springboot.demo.task.impl;
 
-import site.clzblog.springboot.demo.model.TaskProgressMessage;
+import site.clzblog.springboot.demo.task.DetailedTask;
 
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @CreateDate 2018-04-22 19:43
  **/
 public class ExampleTask implements DetailedTask {
-
     private int loops = 10;
     private AtomicInteger progress = new AtomicInteger();
     private String state = "NEW";
@@ -36,29 +35,19 @@ public class ExampleTask implements DetailedTask {
     @Override
     public void run() {
         state = "RUNNING";
-        sendProgress();
         for (double i = 0.0; i <= loops; i++) {
             try {
                 Thread.sleep(1000);
                 Thread.sleep(random.nextInt(5000));
-                progress.set((int) ((i/loops)*100));
-                sendProgress();
+                progress.set((int) ((i / loops) * 100));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         state = "COMPLETE";
-        sendProgress();
-    }
-
-    public void sendProgress() {
-        TaskProgressMessage temp = new TaskProgressMessage(taskName);
-        temp.setProgress(progress.get());
-        temp.setState(state);
     }
 
     public ExampleTask(String taskName) {
         this.taskName = taskName;
-        sendProgress();
     }
 }

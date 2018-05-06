@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.clzblog.springboot.demo.service.AsyncTaskService;
-import site.clzblog.springboot.demo.task.ExampleTask;
+import site.clzblog.springboot.demo.task.impl.ExampleTask;
 
 import java.util.ArrayList;
 import java.util.List;
