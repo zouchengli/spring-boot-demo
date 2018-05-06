@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -23,6 +25,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAll() {
+        return userMapper.findAll();
+    }
+
+    @Override
     public User findById(int id) {
         return userMapper.findUserById(id);
     }
@@ -30,5 +37,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByName(String name) {
         return userMapper.findUserByName(name);
+    }
+
+    @Override
+    public int deleteUser(int id) {
+        return userMapper.delUser(id);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userMapper.updateUser(user);
     }
 }
