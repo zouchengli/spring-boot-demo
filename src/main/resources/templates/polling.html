@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" th:href="@{../favicon.ico}"/>
 
-    <title>异步任务监控套接字方式</title>
+    <title>异步任务监控轮询方式</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link href="css/starter-template.css" rel="stylesheet">
+    <link th:href="@{css/starter-template.css}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="newPoolsize" class="sr-only">新的线程池大小</label>
-                                <input type="number" class="form-control" id="newPoolsize" placeholder="新的线程池大小">
+                                <input type="number" class="form-control" id="newPoolsize" placeholder="新的线程池大小"/>
                             </div>
                             <button id="btnSetPoolsize" type="button" class="btn btn-default btn-sm">设置新的线程池大小</button>
                         </form>
@@ -83,10 +83,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/websocket.js"></script>
-<script src="js/sockjs-0.3.4.js"></script>
-<script src="js/stomp.js"></script>
+<script th:src="@{js/jquery-3.3.1.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/polling.js}"></script>
 </body>
 </html>
