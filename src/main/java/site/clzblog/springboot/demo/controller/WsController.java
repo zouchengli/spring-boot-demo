@@ -36,6 +36,13 @@ public class WsController {
         return new ResponseMessage("Hello," + requestMessage.getName() + " !");
     }
 
+    @PostMapping("/sendHello")
+    @ResponseBody
+    public void sendHello(String name) {
+        System.out.println(name);
+        simpMessagingTemplate.convertAndSend("/topic/helloChannel", new ResponseMessage("Hello," +name + " !"));
+    }
+
     @RequestMapping("/test")
     @ResponseBody
     public String test() {

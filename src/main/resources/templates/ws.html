@@ -49,7 +49,8 @@
     function sendName() {
         var name = $('#name').val();
         console.log('name:' + name);
-        stompClient.send("/hello", {}, JSON.stringify({'name': name}));
+        //stompClient.send("/hello", {}, JSON.stringify({'name': name}));
+        $.post("/sendHello",{name:name});
     }
     function showResponse(message) {
         $("#response").html(message);
