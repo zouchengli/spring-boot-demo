@@ -1,22 +1,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>广播式WebSocket</title>
+    <title>Broadcast WebSocket</title>
     <script th:src="@{js/sockjs-0.3.4.js}"></script>
     <script th:src="@{js/stomp.js}"></script>
     <script th:src="@{js/jquery-3.3.1.js}"></script>
 </head>
 <body onload="disconnect()">
-<noscript><h2 style="color: #e80b0a;">Sorry，浏览器不支持WebSocket</h2></noscript>
+<noscript><h2 style="color: #e80b0a;">Sorry，Browser not support WebSocket</h2></noscript>
 <div>
     <div>
-        <button id="connect" onclick="connect();">连接</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
+        <button id="connect" onclick="connect();">connect</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">disconnect</button>
     </div>
 
     <div id="conversationDiv">
-        <label>输入你的名字</label><input type="text" id="name"/>
-        <button id="sendName" onclick="sendName();">发送</button>
+        <label>Input:</label><textarea type="text" id="name" rows="6"/>
+        <button id="sendName" onclick="sendName();">Send</button>
         <p id="response"></p>
     </div>
 </div>

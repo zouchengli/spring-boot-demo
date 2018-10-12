@@ -1,5 +1,6 @@
 package site.clzblog.springboot.demo.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -17,6 +18,7 @@ import site.clzblog.springboot.demo.task.impl.WebSocketTaskImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Controller
 public class WsController {
     private List<WebSocketTaskImpl> taskList = new ArrayList<>(5);
@@ -39,8 +41,8 @@ public class WsController {
     @PostMapping("/sendHello")
     @ResponseBody
     public void sendHello(String name) {
-        System.out.println(name);
-        simpMessagingTemplate.convertAndSend("/topic/helloChannel", new ResponseMessage("Hello," +name + " !"));
+        log.info("Transmission history -> {}", name);
+        simpMessagingTemplate.convertAndSend("/topic/helloChannel", new ResponseMessage(name));
     }
 
     @RequestMapping("/test")
