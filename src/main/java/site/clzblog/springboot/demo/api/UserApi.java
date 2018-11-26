@@ -26,4 +26,9 @@ public class UserApi {
     public String test(@RequestParam("name") String name) {
         return name;
     }
+
+    @GetMapping("/get")
+    public String get() {
+        return "Get user successfully!";
+    }
 }
